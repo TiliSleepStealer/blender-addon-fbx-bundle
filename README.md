@@ -21,6 +21,10 @@ You can find documentation and the latest release on the official website
 * Experimental port to blender 2.8.
 * Please backup your work before using this tool!
 
+**Download**
+
+* [FBX_Bundle_1.5.1.zip](https://github.com/TiliSleepStealer/blender-addon-fbx-bundle/releases/download/release_1.5.1/FBX_Bundle_1.5.1.zip)
+
 ## FBX Bundle 1.5.0 ##
 
 **Download**
