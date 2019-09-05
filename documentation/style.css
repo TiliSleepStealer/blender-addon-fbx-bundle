@@ -1,0 +1,163 @@
+@charset "UTF-8";
+body {
+	/*font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif';*/
+	background-color: #353535;
+	color: #BDBDBD;
+	font-size: 11pt;
+	font-family: 'News Cycle', sans-serif;
+}
+p {
+	margin-before: 0.5em;
+    margin-after: 0.5em;	
+}
+strong{
+	font-weight: normal;
+	color: #32C747;
+}
+
+
+main {
+	padding-left: 200px;
+	min-width: 800px;
+	max-width: 1000px;
+
+	margin-left: auto;
+	margin-right: auto;
+	float: none !important;
+	/*margin: 20px;*/
+}
+
+h1, h2, h3 {
+	color: #5CA0E7;
+	padding: 0px;
+	margin: 0px;
+	margin-before: 0;
+    margin-after: 0;
+	/*font-weight: bold;*/
+	font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+	background: -webkit-linear-gradient(#6a9dee, #5d5ccb);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-size: 3em;
+}
+
+h3 {
+	font-family: 'News Cycle', sans-serif;
+	font-size: 1.2em;
+	font-weight:lighter;
+	/*margin-bottom: 0px;
+	padding-bottom:0px;*/
+	margin-block-end: -1em;
+}
+
+
+a {
+	/*display: block;*/
+	color: #fb0e7d;
+
+	/*padding: 16px;*/
+	/*text-decoration: none;*/
+}
+
+
+panel p img{
+	display:block;
+    margin:auto;
+}
+
+panel {
+	background-color:#242424;
+	display: block;	
+	padding: 18px;
+	margin:18px;
+	border-radius: 4px;
+	
+	column-count: 2;
+	column-gap: 16px;
+}
+
+
+subpanel p img{
+	display:block;
+    margin:auto;
+}
+
+subpanel {
+	background-color: #2D2D2D;
+	display: block;
+	padding: 18px;
+	margin-bottom: 16px;
+	margin-top: 16px;
+	border-radius: 4px;
+	break-inside: avoid-column;
+	box-shadow: inset 0px 1px #555555;
+
+}
+
+hr {
+	border: none;
+	height: 1px;
+	background-color: #434343;
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+.sidebar a img{
+
+	padding-left:10px;	
+	padding-right:10px;	
+	vertical-align:middle;
+	
+}
+
+
+/* Active/current link 
+a.active {
+	background-color: #4CAF50;
+	color: white;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+/* The side navigation menu */
+.sidebar {
+	width: 200px;
+	background-color: #242424;
+	position: fixed;
+	height: 100%;
+	overflow: auto;
+	z-index: 1; /* Stay on top */
+	top: 0;
+	left: 0;
+	/*overflow-x: hidden;  Disable horizontal scroll *//*	margin-left: 200px;*/
+	overflow: hidden;
+}
+/* Sidebar links */
+.sidebar a {
+	display: block;
+	color: #BDBDBD;
+	padding: 16px;
+	text-decoration: none;
+}
+/* Active/current link */
+.sidebar a.active {
+	background-color: #537CCC;
+	color: white;
+}
+/* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+	background-color: #555;
+	color: white;
+}

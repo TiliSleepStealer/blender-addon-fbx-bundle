@@ -1,0 +1,395 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>FBX Bundle</title>
+	<link href="style.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=News+Cycle" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:900" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="sidebar">
+		<img src="images/logo.png"> 
+		<a class="active" href="#download"><img src="images/sidebar_download.png" /> Download</a> 
+		<a href="#installation"><img src="images/sidebar_install.png" /> Installation</a> 
+		<a href="#guide"><img src="images/sidebar_guide.png" /> Quick Guide</a>
+        <hr></hr>
+        <a href="#settings"><img src="images/sidebar_settings.png" /> Settings</a> 
+		<a href="#modifiers"><img src="images/sidebar_modifier.png" />Modifiers</a> 
+		
+        <a href="#tools"><img src="images/sidebar_tools.png" />Tools</a> 
+		
+         <hr></hr>
+	  	<a href="#bundles"><img src="images/sidebar_bundles.png" />Bundles</a> 
+	</div>
+
+	<main>
+		<!-- The sidebar -->
+		
+
+		<panel>
+			<a id="home"></a>
+            <h1> FBX Bundle</h1>
+			<p>FBX Bundle addon batch exports your object selection into file bundles by a common identifier. It is easy to use and requires just a single click to export or update game assets to your game engine. </p>
+			<p>Optional <a href="#modifiers">modifiers</a> allow to automate game engine optimisations such as LOD generation, mesh optimisations or creation of collider meshes. 
+			
+
+			</p>
+			<subpanel>
+				<h2>Features</h2>
+				<ul>
+				  <li>Select objects and <strong>batch export</strong> in one click</li>
+				  <li><strong>Bundle objects</strong> into files with local pivots</li>
+				  <li>Profiles for Unity, Unreal, glTF and Collada</li>
+				  <li>Powerful <strong>export Modifiers</strong>: Rename, Offset transform, copy modifiers, merge meshes, collider meshe, LOD, vertex AO</li>
+				  <li><strong>Unity</strong>: Auto assign materials &amp; <strong>fix rotation</strong> issues</li>
+				  <li><strong>Draw fences</strong> around bundles of objects</li>
+				</ul>
+			</subpanel>
+            
+            <subpanel>
+				<a id="download"></a>
+				<h2>Download</h2>
+				<ul>
+				  <li><a href="http://renderhjs.net/fbxbundle/download/FBX_Bundle_1.5.0.zip"> FBX_Bundle_1.5.0.zip</a></li>
+			    </ul>
+				<p>The GIT sourcecode is hosted at <a href="https://bitbucket.org/renderhjs/blender-addon-fbx-bundle">bitbucket</a>. You can find a <a href="https://bitbucket.org/renderhjs/blender-addon-fbx-bundle">release log here</a>.</p>
+            </subpanel>
+
+			
+                        
+                       
+					<img src="images/overview.gif" width="352" height="287" alt=""/></panel>
+                    
+                    
+                    
+                    
+	  <panel>
+
+		<a id="installation"></a>
+    <h1> Installation</h1>
+    <p>FBX Bundle addon requires <a href="https://www.blender.org/download/releases/2-79/">Blender 2.79</a> (2.8 is not yet supported)</p>
+    <subpanel>
+	  <h2>Installation</h2>
+	  <ol>
+	    <li>Open <strong>User Preferences</strong> in Blender and select the Add-ons tab<br>
+	      <img src="images/ui_installation_open_preferences.png" width="195" height="25" alt=""/>					</li>
+	    <li>Press <strong>Install Addon</strong> and Select the zip file<br>
+	      <img src="images/ui_installation_install_addon_from_file.png" width="158" height="21" alt=""/>					</li>
+	    <li> <strong>Enable</strong> the FBX Bundle Addon<br>
+	      <img src="images/ui_installation_enable.gif" width="170" height="24" alt=""/>					</li>
+      </ol>
+	  <p>The FBX Bundle addon can be found the viewport tool panel.</p>
+</subpanel>
+                 
+     <subpanel>
+
+        <h2>Shortcuts</h2>
+       <p>This addon adds the following shortcuts active in the 3D view</p>
+       <ul>
+           <li><strong>Ctrl + E</strong>: Export selected objects/ bundles</li>
+           <li><strong>Ctrl + Shift + E</strong>: Re-Export last exported bundles (does not require any selection)</li>
+       </ul>
+    </subpanel>
+                 
+                        
+      <subpanel>
+
+        <h2><strong><img src="images/unity.png" /></strong> Optional Unity  Script</h2>
+        <p>This optional <strong>Unity Editor script</strong>  does the following:</p>
+        <ul>
+          <li>Disable mesh scale import settings, e.g. scale the mesh in unity at 1.0 instead of 0.01</li>
+          <li>Disable Unity material generation</li>
+          <li>Automatically <strong>assigns existing materials</strong> inside the fbx prefab. The Unity Editor script can automatically assign existing materials if the material names between Blender and the Unity project match.</li>
+          <li>Assigns<strong> collider meshes</strong> when it finds meshes named _COLLIDER e.g. via using the Collider Mesh modifier.</li>
+        </ul>
+        <p>You can install the script from within the FBX Bundle <strong>addon preferences</strong> to your Unity Project</p>
+        <p><img src="images/ui_preferences_install_unity_script.png" alt="" width="297" height="104"/></p>
+        <p>It wil create an Editor folder with the c# Editor script inside. Alternatively the C# script can also be found in the addon zip file under <em>"FBXBundleExporter/resources/PostprocessorMeshes.cs"          </em></p>
+      </subpanel>
+          
+       
+                        
+	</panel>
+
+
+					<panel>
+                    	 <a id="guide"></a>
+					  <h1>Quick Guide</h1>
+					  <p>Below is a common usage example</p>
+					  <subpanel>
+					    
+					    <ol>
+					      <li>Select your export platform e.g. <strong>Unity</strong>, <strong>Unreal</strong>,..<br>
+					        <img src="images/guide_platform.png" width="193" height="28" alt=""/>					      </li>
+					      <li>Select a  path for your export location<br>
+					        <img src="images/ui_path.gif" width="224" height="92" alt=""/>				</li>
+					      <li>Set the <strong>bundle by</strong> mode to <strong>Parent </strong>and set the <strong>pivot at</strong> mode to <strong>Parent</strong><br>
+					        <img src="images/guide_modes.png" width="218" height="41" alt=""/>					      </li>
+					      <li>Enable <strong>Inlcude children</strong> to automatically include objects part of the parent object.<br>
+					        <img src="images/guide_include_children.png" width="111" height="22" alt=""/>					      </li>
+					      <li>Choose a main object and parent other objects to it</li>
+					      <li>Select your objects </li>
+					      <li>Press <strong>Export</strong><br>
+					        <img src="images/ui_export.png" width="122" height="42" alt=""/>					      </li>
+				        </ol>
+				      </subpanel>
+					  <subpanel>
+					    <h2><strong><img src="images/unity.png" /></strong> Unity Tips                              </h2>
+					    <h3>&nbsp;</h3>
+					    <h3>Adding Unity Editor script</h3>
+					    <p> Under the addon preferences for FBX bundle press '<strong>Copy Unity Editor script</strong>’ and select your Unity Assets folder. </p>
+					    <h3>Automatically assign Materials</h3>
+					    <p>					      Create a material in Blender and assign it to your object(s). Create a material in Unity with the same name as the material in blender. Each time unity re-imports your fbx assets materials will be assigned.</p>
+					    <h3>Use the Merge Mesh Modifier</h3>
+					    <p>Use the <a href="#modifier_merge">Merge Meshes</a> modifier to combine all the meshes of each bundle into 1. This can reduce the draw calls at runtime and reduce the amount of objects to select and manage inside Unity.</p>
+				      </subpanel>
+	  </panel>
+
+						<panel>
+						  <a id="settings"></a>
+						  <h1>Settings</h1>
+						  <p>All settings are stored per blender scene and allow therefore per scene unique configurations. </p>
+						  <subpanel>
+						    <a id="settings_platform"></a>
+						    <h2>Platform</h2>
+						    <p>Choose different platforms to export for. </p>
+						    <p><img src="images/ui_platform.png" width="221" height="109" alt=""/></p>
+						    <hr>
+						    <h3> Unity</h3>
+						    <p> Uses the FBX format and applies the correct metric scale and fixes the y /z roation issues. An optional Unity<strong> editor script</strong> allows to automatically assign materials and collider meshes. </p>
+						    <h3> Unreal</h3>
+						    <p>								Uses the FBX format and applies the correct metric scale and FBX export settings. </p>
+						    <h3> Blender</h3>
+						    <p>								Uses collada files (DAE) to export. </p>
+						    <h3> glTF</h3>
+						    <p>									Uses the new glTF file format to export. This requires the <a href="https://github.com/KhronosGroup/glTF-Blender-Exporter">glTF addon</a> to be installed. glTF is a promosing format to compete with FBX</p>
+						    </subpanel>
+						  
+						  <subpanel>
+						    
+						    <h2>Path </h2>
+						    <p><img src="images/ui_path.gif" width="224" height="92" alt=""/></p>
+						    <p>Defines the export or import target path. When a path is not defined a red warning color will show and you can not export or import bundles.</p>
+						    <p><img src="images/ui_path_open.png" width="50" height="25" alt=""/></p>
+						    <p>Press the outside folder button to <strong>open</strong> the folder location.</p>
+						    <p><img src="images/ui_path_open_folder.png" width="278" height="130" alt=""/></p>
+						    </subpanel>
+						  
+						  <subpanel>
+						    <a id="settings_bundle"></a>
+						    <h2>Bundle by </h2>
+						    <p>Defines the rule as to how to group your object selection into different file bundles. The following modes are available: </p>
+						    <hr>
+						    <h3>Name</h3>
+						    <p>									Bundles objects by a common object name element. The name is split into elements seperated by <strong>spaces</strong>, ‘<strong>.</strong>’, ‘<strong>_</strong>’ or <strong>cameCase</strong> writing. </p>
+						    <h3>Parent</h3>
+						    <p>									Bundles objects together that <strong>share the same parent</strong> object. The name of the parent object is used for each file name. </p>
+						    <h3>Group</h3>
+						    <p>									Objects with the <strong>same group</strong> name are bundled together. The name of the group is used for each file name. </p>
+						    <h3>Material</h3>
+						    <p>									Objects with the <strong>same material</strong> are bundled together. The name of the material is used for each file name. </p>
+						    <h3>Scene</h3>
+						    <p>									Objects from the <strong>same scene</strong> are bundled together. The name of the scene is used for each file name.</p>
+						    </subpanel>
+						  
+						  <subpanel>
+						    <a id="settings_pivot"></a>
+						    <h2> Pivot at</h2>
+						    <p> Defines the source of the scene pivot upon exporting. The following modes are available: </p>
+						    <hr>
+						    <h3>First name</h3>
+						    <p> Uses the pivot of the object that appears alphabetically first in the bundle. </p>
+						    <h3>Lowest object</h3>
+						    <p>								  Uses the pivot of the lowest object in the bundle.</p>
+						    <h3>Bottom center</h3>
+						    <p>								  Uses bottom center of the bundle bounds.</p>
+						    <h3>Scene 0,0,0</h3>
+						    <p>								  Uses the center center location (<strong>0,0,0</strong>) as the pivot.</p>
+						    <h3>Parent</h3>
+						    <p>									Uses the pivot of the most <strong>parent object</strong> of the bundle.</p>
+						    <h3>Empty Gizmo</h3>
+						    <p>																		  Use the location of the first 
+						      empty object in the selection. The empty object must be of type <strong>Arrows</strong>, <strong>Single Arrow</strong> or <strong>Plain Axis</strong></p>
+						    <p><img src="images/ui_draw_fences.png" alt=""/></p>
+						    <p>Use the <strong>Draw Fences</strong> tool to preview the pivot placement of each bundle. </p>
+						    </subpanel>
+						  
+						  <subpanel>
+						    <h2>Padding</h2>
+						    <p>This padding value is used for various tools but most notable for the &lsquo;Draw Fences&rsquo; feature where it defines a padding used to draw around the bundles.</p>
+						    </subpanel>
+						  <subpanel>
+						    <h2>Include children</h2>
+						    <p>When enabled will <strong>automatically include</strong> children of parented objects, all objects of a group or objects of a scene if either bundle mode is active.</p>
+						    <p><img src="images/ui_settings_select_children.gif" width="234" height="284" alt=""/></p>
+						    <p> This means that it often is enough to select just a single object of a bundle instead of all to bundle them for export.</p>
+						    <br>
+						    </subpanel>
+						  </panel>
+
+							
+
+							<panel>
+							  <a id="modifiers"></a>
+							  <h1>Modifiers</h1>
+							  <p>Modifiers are applied in the <strong>export</strong> process on a copy of your actual objects. They are used to automate common repetitive tasks that are often associated with preparing assets.</p>
+							  <p><img src="images/ui_modifiers.png" alt=""/></p>
+							  <p> Modifiers are executed from top to bottom order. </p>
+							  <h3>Apply Button</h3>
+							  <p><img src="images/ui_modifier_apply.png" width="68" height="27" alt=""/> </p>
+							  <p>Press the <strong>Apply</strong> button to apply individual modifiers to your selection during editing in Blender. This is a great way to <strong>preview</strong> the settings of individual modifiers.</p>
+							  <p>&nbsp;</p>
+							  
+							  <subpanel>
+							    <a id="modifier_rename"></a>
+							    <h2><img src="images/icon_modifier.png" width="21" height="21" alt=""/> Rename</h2>
+							    <p>Allows to rename the target path or bundle file name. These fields support <strong>dynamic variables</strong>, dynamic variables are written inside curly brackets { } .</p>
+							    <p><img src="images/ui_modifier_rename.png" alt=""/></p>
+							    <p>The following variables are available:</p>
+							    <ul>
+							      <li><strong>{path}</strong> the original output path</li>
+							      <li><strong>{bundle}</strong> the bundle name of each file</li>
+							      <li> <strong>{scene}</strong> the current scene name</li>
+							      <li><strong>{object}</strong> the object name </li>
+							      </ul>
+							    <p>Previews of the final path and file name are previewed at the bottom of the rename modifier UI.</p>
+							    <h3>Path Rename</h3>
+							    <p> Template field for renaming the path of each bundle.  </p>
+							    <h3>File Rename</h3>
+							    <p> Template field for renaming the file name excluding the file extension.</p>
+							    <h3>Object  Rename</h3>
+							    <p> Template field for renaming the object name</p>
+							    <p>&nbsp;</p>
+							    </subpanel>
+							  
+							  
+							  <subpanel>
+							    <a id="modifier_offset"></a>
+							    <h2><img src="images/icon_modifier.png" width="21" height="21" alt=""/> Offset Transform</h2>
+							    <p>Copies the transform offset (<strong>move</strong>, <strong>rotate</strong>, <strong>scale</strong>) of a source object to each item in the bundle. </p>
+							    <p><img src="images/ui_modifier_copy_transform.png" width="228" height="102" alt=""/></p>
+							    <h3>Source Object</h3>
+							    <p>							      The source object in your blend file from which to copy the transform.</p>
+							    </subpanel>
+							  
+							  <subpanel>
+							    <a id="modifier_modifiers"></a>
+							    <h2><img src="images/icon_modifier.png" width="21" height="21" alt=""/> Copy Modifiers</h2>
+							    <p>Copies <strong>blender modifiers</strong> from a source object to all exported objects. For example your source object could contain a triangulate or edge split modifier which would be applied on each object upon export. </p>
+							    <p><img src="images/ui_modifier_copy_modifiers.png" width="227" height="84" alt=""/></p>
+							    <h3>Source Object</h3>
+							    <p>							      The source object in your blend file from which to copy the modifiers.</p>
+							    </subpanel>
+							  
+							  <subpanel>
+							    <a id="modifier_merge"></a>
+							    <h2> <img src="images/icon_modifier.png" width="21" height="21" alt=""/> Merge Meshes</h2>
+							    <p>Merges all meshes of a bundle into a single mesh and object. This modifier is ideal for static environment assets.
+							      </p>
+							    <p><img src="images/ui_modifier_merge.png" alt=""/></p>
+							    <h3>Merge Verts</h3>
+							    <p>							      Merges vertices within a specified <strong>distance</strong>. This is identical to removing double vertices in mesh editing. </p>
+							    <h3>Split by Material</h3>
+							    <p>	<strong>Splits</strong> the	mesh	by	material	so	that each mesh contains only 1 material. </p>
+							    </subpanel>
+							  
+							  
+							  <subpanel>
+							    <a id="modifier_collider"></a>
+							    <h2><img src="images/icon_modifier.png" width="21" height="21" alt=""/> Collider Mesh</h2>
+							    <p>Creates an <strong>additional collider</strong> mesh for each object in a bundle with a simplified geometry.</p>
+							    <p><img src="images/ui_modifier_collider.png" width="226" height="56" alt=""/></p>
+							    <h3>Ratio</h3>
+							    <p>							      The quality ratio of the collider mesh, a value of 0.25 means that the collider mesh will aim for a 25% vertex count to the original object.</p>
+							    <h3>Angle</h3>
+							    <p>							      The <strong>flattening angle</strong> (degrees) of face normals to further compress the collider geometry. The bigger the angle the more blocky the collider.</p>
+							    </subpanel>
+							  
+							  <subpanel>
+							    <a id="modifier_lod"></a>
+							    <h2><img src="images/icon_modifier.png" width="21" height="21" alt=""/> LOD</h2>
+							    <p>Also known as level of detail which is a technique used in game engines to optimize performance. This modifier creates a series of copies of each object in your bundle with a reduced triangle count for each LOD step and a name indicating the LOD level.</p>
+							    <p><img src="images/ui_modifier_LOD.png" width="225" height="138" alt=""/></p>
+							    <p>LOD levels are previewed in the modifier panel with the compression ratio and LOD level.</p>
+							    <h3>Steps</h3>
+							    <p>							      How many LOD steps to include.</p>
+							    <h3>Quality</h3>
+							    <p>							      The lowest LOD <strong>compression ratio</strong>. A value of 0.05 means that LOD steps will range from 100% down to 5% geometry level.</p>
+							    </subpanel>
+							  
+							  <subpanel>
+							    <a id="modifier_ao"></a>
+							    <h2><img src="images/icon_modifier.png" width="21" height="21" alt=""/> Vertex AO</h2>
+							    <p>This modifier applies <strong>vertex color</strong> based <strong>ambient occlusion</strong> to each mesh of a bundle. This is a great way of adding AO depth without the limitation of texture resolution, file or memory size of textures.</p>
+							    <p><img src="images/ui_modifier_vertexAO.png" width="229" height="31" alt=""/></p>
+							    <p>Vertex colors require shaders to fully utilize them.</p>
+							    <p><img src="images/demo_vertexAO.png" alt=""/></p>
+							    </subpanel>
+							  
+							  
+							  </panel>
+                              
+                              <panel>
+                                <a id="tools"></a>
+                                <h1>Tools</h1>
+                                <subpanel>
+                                  <h2>Draw Fences</h2>
+                                  <p><img src="images/ui_draw_fences.png" width="204" height="44" alt=""/></p>
+                                  <p><strong>Draw</strong> grease pencil <strong>fences</strong> around the current selected bundles in your scene. A pole with a <strong>flag</strong> indicates the <strong>pivot</strong> for each bundle under the current pivot mode.</p>
+                                  <p><img src="images/demo_fence.png" width="335" height="237" alt=""/></p>
+                                  <p>Press the '<strong>X</strong>' to <strong>clear</strong> the created grease pencil lines.</p>
+                                </subpanel>
+                                
+                                <subpanel>
+                                  <h2>Ground Pivot</h2>
+                                  <p>Sets the pivot points of selected objects<strong> to the ground</strong> of the bounding box of the bundle.</p>
+                                  <p><img src="images/demo_ground_pivot.gif" width="329" height="302" alt=""/></p>
+                                </subpanel>
+                                
+                                
+                              </panel>
+
+							  <panel>
+							    <a name="bundles"></a>
+							    <h1>Bundles</h1>
+							    <p>This panel lists in realtime the current evaluated bundles of your scene selection. As you change your selection in Blender this list will adjust and show you the file names that will be exported.</p>
+							    <p><img src="images/ui_bundles.png" alt=""/></p>
+							    
+							    <subpanel>
+							      <h2>Compact View</h2>
+							      <p>Enables or disables compact bundle list view.</p>
+							      <p><img src="images/ui_bundles_compact.gif" width="234" height="186" alt=""/></p>
+							      </subpanel>
+							    
+							    <subpanel>
+							      <h2>Import</h2>
+							      <p><img src="images/ui_import.png" width="83" height="41" alt=""/></p>
+							      <p>Batch imports all 3D files from the specified path into the scene. Imported objects are placed at their default import location.</p>
+							      <p>The following file types are supported: <strong>fbx</strong>, <strong>3ds</strong>, <strong>obj</strong></p>
+							      </subpanel>
+							    
+							    <subpanel>
+							      <h2>Export</h2>
+							      <p><img src="images/ui_export.png" width="122" height="42" alt=""/></p>
+							      <p><strong>Batch exports</strong> your selected bundles to the specified <strong>path</strong>. Upon each bundle export your objects are copied so your original objects are notaltered. Active modifiers are applied and finally the original object selection restored.</p>
+							      
+							      </subpanel>
+							    
+							    <subpanel>
+							      <h2>Re-Export</h2>
+							      <p><img src="images/ui_re-export.png" width="198" height="26" alt=""/></p>
+							      <p>Once you exported a model before FBX Bundle will remember the previous bundles you exported. Pressing the<strong> re-export</strong> button will export the very same objects <strong>from last time</strong> so you don&rsquo;t have to manually select your objects to export.</p>
+							      Press the <strong>X</strong> to clear the previous bundle selection.</subpanel>
+							    
+							    
+							    </panel>
+
+
+
+						</main>
+
+					</body>
+					</html>
