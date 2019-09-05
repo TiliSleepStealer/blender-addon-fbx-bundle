@@ -16,7 +16,10 @@ You can find documentation and the latest release on the official website
 
 ## FBX Bundle 1.5.1 ##
 
-Initial port to blender 2.8
+**WARNING**
+
+* Experimental port to blender 2.8.
+* Please backup your work before using this tool!
 
 ## FBX Bundle 1.5.0 ##
 
