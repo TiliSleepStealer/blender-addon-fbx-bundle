@@ -65,9 +65,9 @@ def export_recent(self):
 
 	bpy.ops.object.select_all(action="DESELECT")
 	for obj in objects:
-		for i in range(len(obj.layers)):
-			if not obj.layers[i]:
-				obj.layers[i] = True
+	#	for i in range(len(obj.layers)):
+	#		if not obj.layers[i]:
+	#			obj.layers[i] = True
 		obj.select_set(state = True)
 	
 	bpy.context.view_layer.objects.active = objects[-1]
