@@ -16,6 +16,11 @@ You can find documentation and the previous releases on the official website
 
 # Release Log #
 
+## FBX Bundle 1.5.2 ##
+* Added a fix for the re-export button.
+* There might be some issues with enabling collections before the export happens.
+* LodGroup fixes
+
 ## FBX Bundle 1.5.1 ##
 
 **WARNING**
